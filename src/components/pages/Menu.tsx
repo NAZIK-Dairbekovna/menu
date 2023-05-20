@@ -8,10 +8,10 @@ const Menu = () => {
     const dispatch = useDispatch<AppDispatch>()
 
     return (
-        <div className='menu bg-blue-200 py-10 px-6 '>
+        <div className='bg-blue-200 py-16 px-6 '>
 
            <div className='container'>
-               <h1 className='title text-center text-4xl text-gray-700'>MENU</h1>
+               <h1 className='text-center text-4xl text-gray-700 mb-20'>MENU</h1>
                <ul className='flex wrap'>
                    {
                        foods.map(food => (
@@ -29,7 +29,7 @@ const Menu = () => {
 
                                        <button onClick={() => {
                                            dispatch(Order(food))}}
-                                               className='button bg-yellow-300 rounded py-1 px-3 '>
+                                               className='bg-yellow-300 rounded py-1 px-3 '>
                                            {'to order'}
                                        </button>
                                    </div>
