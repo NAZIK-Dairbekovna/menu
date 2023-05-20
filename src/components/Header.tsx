@@ -11,8 +11,7 @@ const Header = () => {
 
     return (
         <header id='header'>
-            <div className="header-content">
-                {/*bg-white flex items-center justify-between py-4 px-8*/}
+            <div className="bg-white flex items-center justify-between py-4 px-8">
                 <div>
                     <img src={logo} alt=""/>
                 </div>
