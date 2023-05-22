@@ -1,7 +1,7 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../../store/store";
-import {decreaseFood, increaseFood, removeFood} from "../../store/MenuSlice";
+import {decreaseOrder, Order, removeFood} from "../../store/MenuSlice";
 import {NavLink} from "react-router-dom";
 
 const Orders = () => {
@@ -40,7 +40,7 @@ const Orders = () => {
                                                     </button>
                                                     <div className='flex items-center w-[60px] justify-between'>
                                                         <button
-                                                            onClick={() => dispatch(increaseFood(food.quantity))}
+                                                            onClick={() => dispatch(Order(food))}
                                                             className='w-[120px] py-0.5 px-3.5 bg-yellow-500 rounded-xl text-center text-xl text-white'
                                                         >+
                                                         </button>
@@ -48,7 +48,7 @@ const Orders = () => {
                                                             {food.quantity}x
                                                         </div>
                                                         <button
-                                                            onClick={() => dispatch(decreaseFood(food.quantity))}
+                                                            onClick={() => dispatch(decreaseOrder(food))}
                                                             className='w-[140px] py-0.5 px-4 bg-yellow-500 rounded-xl text-center text-xl text-white'
                                                         >-</button>
                                                     </div>

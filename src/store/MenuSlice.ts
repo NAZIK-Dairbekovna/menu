@@ -46,37 +46,21 @@ export const menuSlice = createSlice({
                 state.orders.push({...action.payload, quantity:1});
             }
         },
+        decreaseOrder: (state, action: PayloadAction<Order>) => {
+            const found = state.orders.find(el => el.id === action.payload.id)
+            if(found){
+                state.orders = state.orders.map(el => el.id === action.payload.id ?
+                    {...el, quantity: el.quantity - 1} : el)
+            }else{
+                state.orders.push({...action.payload, quantity:1});
+            }
+        },
         removeFood: (state, action) => {
             state.orders = state.orders.filter(el => el.id !== action.payload.id)
-        },
-        increaseFood: (state, action) => {
-            state.orders = state.orders.map(el => {
-                if (el.id === action.payload) {
-                    if (el.quantity === 1) {
-                        return {...el, quantity: el.quantity + 1}
-                    } else {
-                        return el
-                    }
-                } else {
-                    return el
-                }
-            })
-        },
-        decreaseFood: (state, action) => {
-            state.orders = state.orders.map(el => {
-                if (el.id === action.payload) {
-                    if (el.quantity > 1) {
-                        return {...el, quantity: el.quantity - 1}
-                    } else {
-                        return el
-                    }
-                } else {
-                    return el
-                }
-            })
         }
+
     },
 });
 
 
-export const {addFood, newFood, Order, removeFood, increaseFood, decreaseFood} = menuSlice.actions;
+export const {addFood, newFood, Order, decreaseOrder, removeFood} = menuSlice.actions;
