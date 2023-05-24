@@ -47,10 +47,6 @@ const Orders = () => {
                                                         <div className='p-3'>
                                                             {food.quantity}x
                                                         </div>
-                                                        <button
-                                                            onClick={() => dispatch(decreaseOrder(food))}
-                                                            className='w-[130px] py-0.5 px-4 bg-yellow-800 rounded-xl text-center text-xl text-white'
-                                                        >-</button>
                                                     </div>
 
 
