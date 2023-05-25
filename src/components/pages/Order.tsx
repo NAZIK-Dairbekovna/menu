@@ -41,12 +41,17 @@ const Orders = () => {
                                                     <div className='flex items-center w-[60px] justify-between'>
                                                         <button
                                                             onClick={() => dispatch(Order(food))}
-                                                            className='w-[120px] py-0.5 px-3.5 bg-yellow-800 rounded-xl text-center text-xl text-white'
+                                                            className='w-[140px] py-0.5 px-3.5 bg-yellow-400 rounded-xl text-center text-xl text-white'
                                                         >+
                                                         </button>
                                                         <div className='p-3'>
                                                             {food.quantity}x
                                                         </div>
+                                                        <button
+                                                            onClick={() => dispatch(decreaseOrder(food))}
+                                                            className='w-[140px] py-0.5 px-3.5 bg-yellow-400 rounded-xl text-center text-xl text-white'
+                                                        >-
+                                                        </button>
                                                     </div>
 
 
