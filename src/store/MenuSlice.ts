@@ -47,17 +47,21 @@ export const menuSlice = createSlice({
             }
         },
         decreaseOrder: (state, action: PayloadAction<Order>) => {
-            const found = state.orders.find(el => el.id === action.payload.id)
-            if(found){
-                state.orders = state.orders.map(el => el.id === action.payload.id ?
-                    {...el, quantity: el.quantity - 1} : el)
-            }else{
-                state.orders.push({...action.payload, quantity:1});
+            const foundIndex = state.orders.findIndex(el => el.id === action.payload.id);
+            if (foundIndex !== -1) {
+                if (state.orders[foundIndex].quantity === 1) {
+                    state.orders.splice(foundIndex, 1);
+                } else {
+                    state.orders[foundIndex].quantity -= 1;
+                }
+            } else {
+                state.orders.push({ ...action.payload, quantity: 1 });
             }
         },
         removeFood: (state, action) => {
-            state.orders = state.orders.filter(el => el.id !== action.payload.id)
+            state.orders = state.orders.filter(el => el.id !== action.payload.id);
         }
+
 
     },
 });
